@@ -4,12 +4,12 @@
 
   <groupId>de.adrianlange</groupId>
   <artifactId>readable-ids</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
-  <name>readable IDs</name>
+  <name>readable-ids-bom</name>
   <url>https://github.com/adlange/readable-ids</url>
-  <description>A Java library for generating human readable IDs from given dictionaries.</description>
+  <description>A Java library for generating human-readable IDs from given dictionaries.</description>
 
   <organization>
     <name>Adrian Lange</name>
@@ -31,6 +31,7 @@
   </developers>
 
   <properties>
+    <revision>1.0.0-SNAPSHOT</revision>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>

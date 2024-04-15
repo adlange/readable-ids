@@ -4,7 +4,7 @@
   <parent>
     <artifactId>readable-ids</artifactId>
     <groupId>de.adrianlange</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
   </parent>
 
   <artifactId>readable-ids-core</artifactId>
