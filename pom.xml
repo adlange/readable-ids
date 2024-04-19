@@ -31,7 +31,7 @@
   </developers>
 
   <properties>
-    <revision>1.0.0-SNAPSHOT</revision>
+    <revision>0.0.1-SNAPSHOT</revision>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -181,5 +181,6 @@
 
   <modules>
     <module>readable-ids-core</module>
+    <module>readable-ids-dictionary-german-adjective-noun</module>
   </modules>
 </project>
