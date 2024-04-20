@@ -4,7 +4,7 @@
 
   <groupId>de.adrianlange</groupId>
   <artifactId>readable-ids</artifactId>
-  <version>${revision}</version>
+    <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>readable-ids-bom</name>
@@ -31,7 +31,6 @@
   </developers>
 
   <properties>
-    <revision>0.0.1-SNAPSHOT</revision>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -48,6 +47,21 @@
     <system>Github Issues</system>
     <url>https://github.com/adlange/readable-ids/issues</url>
   </issueManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>readable-ids-core</artifactId>
+        <groupId>de.adrianlange</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>readable-ids-dictionary-german-adjective-noun</artifactId>
+        <groupId>de.adrianlange</groupId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
