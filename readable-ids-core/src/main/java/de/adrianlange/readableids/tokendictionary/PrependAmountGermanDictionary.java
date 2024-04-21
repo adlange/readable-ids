@@ -2,7 +2,7 @@ package de.adrianlange.readableids.tokendictionary;
 
 import static java.lang.System.arraycopy;
 
-public class PrependAmountDictionary implements TokenDictionary {
+public class PrependAmountGermanDictionary implements TokenDictionary {
 
   private static final int MAXIMAL_VALUE = 100;
 
@@ -10,7 +10,7 @@ public class PrependAmountDictionary implements TokenDictionary {
 
   private final TokenDictionary parentTokenDictionary;
 
-  public PrependAmountDictionary(TokenDictionary parentTokenDictionary) {
+  public PrependAmountGermanDictionary(TokenDictionary parentTokenDictionary) {
 
     this.parentTokenDictionary = parentTokenDictionary;
   }
