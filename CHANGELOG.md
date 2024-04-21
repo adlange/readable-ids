@@ -2,6 +2,11 @@
 
 ---
 
+## 0.0.2
+
+* fix parent BOM creation and artifact packaging
+* improve documentation
+
 ##  0.0.1
 
 * initial commit with base functionality
