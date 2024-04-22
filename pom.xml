@@ -195,6 +195,7 @@
 
   <modules>
     <module>readable-ids-core</module>
+    <module>readable-ids-dictionary-english-adjective-noun</module>
     <module>readable-ids-dictionary-german-adjective-noun</module>
   </modules>
 </project>

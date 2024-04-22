@@ -123,6 +123,39 @@ for (int i = 0; i < 5; i++) {
 
 You can easily create your own joiner by implementing the interface `TokenJoiner`.
 
+### English Dictionary with Adjectives and Nouns
+
+To use the English dictionary you need to include the following dependency.
+
+```gradle
+implementation 'de.adrianlange:readable-ids-dictionary-english-adjective-noun:0.0.1'
+```
+
+```xml
+<dependency>
+    <groupId>de.adrianlange</groupId>
+    <artifactId>readable-ids-dictionary-english-adjective-noun</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+```java
+var generator = new ReadableIdGenerator()
+        .withTokenDictionary(new EnglishAdjectiveNounDictionary())
+        .withIdJoiner(new SeparatorJoiner("_"));
+for (int i = 0; i < 5; i++) {
+  System.out.println(generator.nextId());
+}
+/*
+ * generates:
+ *  famous_cork
+ *  incredible_move
+ *  magical_blood
+ *  gracious_moon
+ *  meticulous_skirt
+ */
+```
+
 ### German Dictionary with Adjectives and Nouns
 
 To use the German dictionary you need to include the following dependency. 
@@ -160,6 +193,22 @@ for (int i = 0; i < 5; i++) {
  */
 ```
 
+### Using Multiple Dictionaries
+
+You can use multiple dictionaries at once in one Readable ID generator. Just call `.withTokenDictionary(...)` multiple
+times.
+
+```java
+var generator = new ReadableIdGenerator()
+        .withTokenDictionary(new FirstDictionary())
+        .withTokenDictionary(new SecondDictionary());
+```
+
+When requesting a new ID, the generator first randomly selects one of the dictionaries from which an ID is then
+generated. Because all dictionaries have the same probability of being selected when generating an ID, the chance of
+duplicates among the IDs can be much higher when using another significantly smaller dictionary compared to the use of a
+single, extensive dictionary.
+
 ### Using Multiple Modules of readable-ids
 
 To avoid having to maintain the module version individually, it is advisable to use the BOM.
@@ -168,7 +217,7 @@ To avoid having to maintain the module version individually, it is advisable to 
 
 ```gradle
 implementation(platform("de.adrianlange:readable-ids:0.0.1"))
-implementation("de.adrianlange:readable-ids-core")
+implementation("de.adrianlange:readable-ids-dictionary-english-adjective-noun")
 implementation("de.adrianlange:readable-ids-dictionary-german-adjective-noun")
 ```
 
@@ -189,7 +238,7 @@ implementation("de.adrianlange:readable-ids-dictionary-german-adjective-noun")
 
 <dependency>
     <groupId>de.adrianlange</groupId>
-    <artifactId>readable-ids-core</artifactId>
+    <artifactId>readable-ids-dictionary-english-adjective-noun</artifactId>
 </dependency>
 <dependency>
     <groupId>de.adrianlange</groupId>

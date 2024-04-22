@@ -4,6 +4,7 @@
 
 ## 0.0.2
 
+* new module `readable-ids-dictionary-english-adjective-noun`
 * fix parent BOM creation and artifact packaging
 * improve documentation
 
