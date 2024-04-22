@@ -209,6 +209,13 @@ generated. Because all dictionaries have the same probability of being selected 
 duplicates among the IDs can be much higher when using another significantly smaller dictionary compared to the use of a
 single, extensive dictionary.
 
+You can get the estimated number of possible combinations possible from the given dictionaries, assuming that there are
+no duplicates / overlaps within the dictionaries and that a good `RandomGenerator` is used:
+
+```java
+long possibleCombinations = generator.getNumberOfPossibleCombinations();
+```
+
 ### Using Multiple Modules of readable-ids
 
 To avoid having to maintain the module version individually, it is advisable to use the BOM.

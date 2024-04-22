@@ -32,4 +32,14 @@ public abstract class SimpleTokenDictionary implements TokenDictionary {
     }
     return tokens;
   }
+
+  @Override
+  public long getNumberOfPossibleCombinations() {
+
+    long numberOfCombinations = 1;
+    for (var tokenArray : dictionary) {
+      numberOfCombinations *= tokenArray.length;
+    }
+    return numberOfCombinations;
+  }
 }
