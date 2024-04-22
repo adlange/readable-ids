@@ -125,4 +125,4 @@ You can easily create your own joiner by implementing the interface `TokenJoiner
 
 ## Changelog
 
-A list of changes can be found under [Changelog.md](./Changelog.md).
+A list of changes can be found under [CHANGELOG.md](./CHANGELOG.md).
