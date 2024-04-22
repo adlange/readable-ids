@@ -52,4 +52,10 @@ public class AppendNumberDictionary implements TokenDictionary {
     tokensAtPositions[positionsForParent.length] = String.valueOf(positions[positionsForParent.length] + minimalValueInc);
     return tokensAtPositions;
   }
+
+  @Override
+  public long getNumberOfPossibleCombinations() {
+
+    return parentTokenDictionary.getNumberOfPossibleCombinations() * (long) (maximalValueExc - minimalValueInc);
+  }
 }

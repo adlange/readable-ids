@@ -97,6 +97,18 @@ public final class ReadableIdGenerator {
     return tokenJoiner.joinTokens(idFromDictionary);
   }
 
+  /**
+   * Returns the number of possible combinations of tokens for all dictionaries.
+   *
+   * @return Number of possible combinations
+   */
+  public long getNumberOfPossibleCombinations() {
+
+    return tokenDictionaries.stream()
+            .map(TokenDictionary::getNumberOfPossibleCombinations)
+            .reduce(0L, Long::sum);
+  }
+
   private String[] getIdFromDictionary() {
 
     var dictionary = tokenDictionaries.get(randomGenerator.nextInt(tokenDictionaries.size()));

@@ -37,6 +37,12 @@ public class PrependAmountGermanDictionary implements TokenDictionary {
     return tokensAtPositions;
   }
 
+  @Override
+  public long getNumberOfPossibleCombinations() {
+
+    return parentTokenDictionary.getNumberOfPossibleCombinations() * (long) (MAXIMAL_VALUE - MINIMAL_VALUE);
+  }
+
   private static String getAmountString(int amount) {
 
     return switch (amount) {

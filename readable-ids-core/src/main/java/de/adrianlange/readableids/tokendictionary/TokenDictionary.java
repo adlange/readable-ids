@@ -20,4 +20,11 @@ public interface TokenDictionary {
    * @return Array of tokens, which form the ID in the end
    */
   String[] getTokensAtPositions(int[] positions);
+
+  /**
+   * Returns the number of possible combinations of tokens in the dictionary. If the dictionary is empty, it also returns <var>1</var>, since it returns the singe empty value.
+   *
+   * @return Number of possible combinations
+   */
+  long getNumberOfPossibleCombinations();
 }

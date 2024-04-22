@@ -6,6 +6,8 @@
 
 * new module `readable-ids-dictionary-english-adjective-noun`
 * fix parent BOM creation and artifact packaging
+* add `getNumberOfPossibleCombinations()` method to `ReadableIdGenerator`
+* add `getNumberOfPossibleCombinations()` method to `TokenDictionary` interface
 * improve documentation
 
 ##  0.0.1
