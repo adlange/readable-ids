@@ -7,7 +7,7 @@ allows developers to create flexible and user-friendly IDs that are both easy to
 
 ## Usage
 
-### Add the dependency to your project
+### Add the Dependency to Your Project
 
 **Gradle**
 
@@ -25,7 +25,7 @@ implementation 'de.adrianlange:readable-ids-core:0.0.1'
 </dependency>
 ```
 
-### Create new Readable IDs generator from simple dictionary
+### Create New Readable IDs Generator From Simple Dictionary
 
 ```java
 public class FooDictionary extends SimpleTokenDictionary {
@@ -59,7 +59,7 @@ for (int i = 0; i < 5; i++) {
 
 You can easily create your own dictionary by extending `SimpleTokenDictionary` or even implement `TokenDictionary`.
 
-### Increase existing dictionaries with decorator dictionaries
+### Increase Existing Dictionaries With Decorator Dictionaries
 
 ```java
 var generator = new ReadableIdGenerator()
@@ -79,7 +79,7 @@ for (int i = 0; i < 5; i++) {
 
 Another preedefined decorator dictionary is `PrependAmountGermanDictionary`.
 
-### Modify all tokens before creating a token
+### Modify All Tokens Before Creating a Token
 
 ```java
 var generator = new ReadableIdGenerator()
@@ -102,7 +102,7 @@ Other given modifiers are `LowerCaseModifier` and `ReplaceGermanSpecialCharacter
 
 You can easily create your own modifier by implementing the interface `TokenModifier`.
 
-### Change the way tokens are joined forming an ID
+### Change the Way Tokens are Joined Forming an ID
 
 ```java
 var generator = new ReadableIdGenerator()
@@ -123,6 +123,80 @@ for (int i = 0; i < 5; i++) {
 
 You can easily create your own joiner by implementing the interface `TokenJoiner`.
 
+### German Dictionary with Adjectives and Nouns
+
+To use the German dictionary you need to include the following dependency. 
+
+```gradle
+implementation 'de.adrianlange:readable-ids-dictionary-german-adjective-noun:0.0.1'
+```
+
+```xml
+<dependency>
+    <groupId>de.adrianlange</groupId>
+    <artifactId>readable-ids-dictionary-german-adjective-noun</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+Use it preferably with the token modifier `ReplaceGermanSpecialCharactersModifier`:
+
+```java
+var generator = new ReadableIdGenerator()
+        .withTokenDictionary(new GermanAdjectiveNounDictionary())
+        .withTokenModifier(new ReplaceGermanSpecialCharactersModifier())
+        .withTokenModifier(new LowerCaseModifier())
+        .withIdJoiner(new KebapCaseJoiner());
+for (int i = 0; i < 5; i++) {
+  System.out.println(generator.nextId());
+}
+/*
+ * generates:
+ *  beachtliche-reinigungen
+ *  nachhaltige-elefanten
+ *  vertrauenswuerdige-spieler
+ *  hoefliche-heckenpflanzen
+ *  interessante-insekten
+ */
+```
+
+### Using Multiple Modules of readable-ids
+
+To avoid having to maintain the module version individually, it is advisable to use the BOM.
+
+**Gradle**
+
+```gradle
+implementation(platform("de.adrianlange:readable-ids:0.0.1"))
+implementation("de.adrianlange:readable-ids-core")
+implementation("de.adrianlange:readable-ids-dictionary-german-adjective-noun")
+```
+
+**Maven**
+
+```xml
+ <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>de.adrianlange</groupId>
+            <artifactId>readable-ids</artifactId>
+            <version>0.0.1</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependency>
+    <groupId>de.adrianlange</groupId>
+    <artifactId>readable-ids-core</artifactId>
+</dependency>
+<dependency>
+    <groupId>de.adrianlange</groupId>
+    <artifactId>readable-ids-dictionary-german-adjective-noun</artifactId>
+</dependency>
+```
+
 ## Changelog
 
-A list of changes can be found under [Changelog.md](./Changelog.md).
+A list of changes can be found under [CHANGELOG.md](./CHANGELOG.md).
